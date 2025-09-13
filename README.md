@@ -38,4 +38,4 @@ A fully functional Angular calendar application with features like drag-and-drop
 
 ```bash
 git clone https://github.com/<your-username>/angular-calendar.git
-cd angular-calendar
+cd Angular-Calendar-Application
