@@ -37,5 +37,5 @@ A fully functional Angular calendar application with features like drag-and-drop
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/angular-calendar.git
+git clone https://github.com/subhashini0223/Angular-Calendar-Application.git
 cd Angular-Calendar-Application
