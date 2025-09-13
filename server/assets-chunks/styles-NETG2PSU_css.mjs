@@ -1,2 +1,0 @@
-export default `@charset "UTF-8";body.dark-mode{background:#1e1e1e;color:#e0e0e0}body.dark-mode .calendar-day{background:#2a2a2a!important;border-color:#444!important}body.dark-mode .calendar-day.other-month{background:#1c1c1c!important;color:#777!important}body.dark-mode .event{opacity:.9}body.dark-mode .modal{background:#2a2a2a;color:#f1f1f1}
-`;
