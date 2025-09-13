@@ -1,0 +1,64 @@
+.calendar-container { max-width: 800px; margin: auto; font-family: sans-serif; }
+
+.calendar-header { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.calendar-header input, .calendar-header select { padding:3px 6px; }
+
+.calendar-weekdays { display:grid; grid-template-columns:repeat(7,1fr); font-weight:bold; text-align:center; }
+.calendar-weeks { display:grid; grid-template-rows:auto; gap:2px; }
+
+.calendar-week { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
+.calendar-day { 
+  min-height:80px; 
+  border:1px solid #ddd; 
+  padding:3px; 
+  position:relative; 
+  background:#fefefe; 
+  cursor:pointer; 
+  transition:background 0.2s; 
+}
+.calendar-day:hover { background-color: #f0f0f0; }
+.calendar-day.other-month { background:#f7f7f7; color:#aaa; }
+
+.date-number { font-size:12px; font-weight:bold; position:absolute; top:2px; right:4px; }
+/* Highlight for today's date (light mode) */
+.calendar-day.today {
+  border: 2px solid #007bff;
+  border-radius: 0%;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.calendar-day.today .date-number {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 🔥 Dark mode override */
+.dark-mode .calendar-day.today {
+  border: 2px solid #66ccff;
+  background-color: rgba(102, 204, 255, 0.15);
+}
+
+.dark-mode .calendar-day.today .date-number {
+  color: #66ccff;
+}
+
+.event { 
+  margin-top:16px; 
+  font-size:12px; 
+  padding:2px 4px; 
+  border-radius:4px; 
+  color:#fff; 
+  cursor:pointer; 
+  user-select:none; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center;
+  transition:transform 0.1s;
+}
+.event:hover { transform:scale(1.05); }
+.delete-icon { margin-left:5px; cursor:pointer; font-weight:bold; }
+
+@media(max-width:600px){
+  .calendar-weekdays, .calendar-week { grid-template-columns:repeat(7,1fr); font-size:10px; }
+  .calendar-day { min-height:50px; font-size:10px; }
+}

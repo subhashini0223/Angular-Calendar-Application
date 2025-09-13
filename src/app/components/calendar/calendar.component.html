@@ -1,0 +1,77 @@
+<div class="calendar-container">
+  <!-- Calendar Header -->
+  <div class="calendar-header">
+    <button (click)="prevMonth()">&lt;</button>
+    <span>{{ currentMonth | date:'MMMM yyyy' }}</span>
+    <button (click)="nextMonth()">&gt;</button>
+
+    <!-- Month selector -->
+    <select #monthSel (change)="goToMonthYear(monthSel.value, currentMonth.getFullYear())">
+      <option *ngFor="let m of [0,1,2,3,4,5,6,7,8,9,10,11]" 
+              [value]="m" 
+              [selected]="m===currentMonth.getMonth()">
+        {{ m+1 }}
+      </option>
+    </select>
+
+    <!-- Year selector -->
+    <input type="number" 
+           [value]="currentMonth.getFullYear()" 
+           (change)="goToMonthYear(currentMonth.getMonth(), $event.target.value)">
+
+    <!-- Search bar -->
+    <input type="text" placeholder="Search events..." [formControl]="searchControl">
+
+    <!--  Dark/Light toggle -->
+    <button (click)="toggleTheme()">
+      {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+    </button>
+  </div>
+  <!-- Weekday labels -->
+  <div class="calendar-weekdays">
+    <div *ngFor="let wd of weekdays">{{ wd }}</div>
+  </div>
+
+ <!-- Calendar grid -->
+<div class="calendar-weeks">
+  <div class="calendar-week" *ngFor="let week of weeks">
+    <div class="calendar-day"
+         *ngFor="let day of week"
+              [attr.cdkDropListId]="getDateKey(day)"
+              [class.today]="day && isToday(day)"
+         [class.other-month]="day && day.getMonth() !== currentMonth.getMonth()"
+         (click)="!isDragging && day && onDayClick(day)" 
+         cdkDropList
+         [cdkDropListData]="eventsByDate$ | async | mapGet:getDateKey(day)"
+         [cdkDropListConnectedTo]="allDropLists"
+         (cdkDropListDropped)="day && drop($event, getDateKey(day))">
+
+      <div class="date-number">{{ day?.getDate() }}</div>
+
+      <!-- Events list -->
+     <div class="event"
+     *ngFor="let e of eventsByDate$ | async | mapGet:getDateKey(day)"
+     [style.backgroundColor]="getCategoryColor(e.categoryId)"
+     cdkDrag
+     (cdkDragStarted)="onDragStarted()"
+     (cdkDragEnded)="onDragEnded()"
+     (click)="onEventClick(e, $event)"
+     (mousedown)="$event.stopPropagation()">
+  <span>{{ e.title }}</span>
+  <span class="delete-icon" 
+        (click)="onDelete(e); $event.stopPropagation()">✕</span>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <!-- Event form modal -->
+  <app-event-form *ngIf="showForm"
+                  [date]="selectedDateIso"
+                  [event]="editingEvent"
+                  (save)="onSave($event)"
+                  (delete)="onDelete($event)"
+                  (close)="showForm=false">
+  </app-event-form>
+</div>
