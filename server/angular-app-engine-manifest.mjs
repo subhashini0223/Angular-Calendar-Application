@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'Angular-Calendar-Application',
+  basePath: '/Angular-Calendar-Application',
   supportedLocales: {
   "en-US": ""
 },
