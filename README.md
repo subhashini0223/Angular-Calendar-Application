@@ -1,16 +1,98 @@
-# Angular Calendar
 
-A fully functional Angular calendar application with features like drag-and-drop events, search, dark/light mode toggle, and dynamic date highlighting.
+# 📅 Angular Calendar Application
 
-## Features
+An advanced **calendar application built with Angular 17+ (standalone architecture)**.  
+It supports event management with drag-and-drop, categories, reminders, dark/light theme, and more — similar to a mini Google Calendar.
 
-- **Monthly calendar view** with weekdays and dates
-- **Add/Edit/Delete events** with a modal form
-- **Drag-and-drop events** between dates
-- **Search events** by title or category
-- **Dark/Light mode toggle** with theme-aware highlights
-- **Current date highlighting**
-- **Responsive design** for desktop and mobile
+🚀 **Live Demo**: [Angular Calendar App](https://subhashini0223.github.io/Angular-Calendar-Application/)
+
+---
+
+## ✨ Features
+
+- ✅ **Monthly Calendar View** with weekday headers  
+- ✅ **Today Highlighting** (dynamic color based on dark/light mode)  
+- ✅ **Add / Edit / Delete Events** (modal form)  
+- ✅ **Confirmation dialog** before deleting events  
+- ✅ **Drag & Drop** events between days (CDK DragDrop)    
+- ✅ **Event Categories** with color coding (saved in LocalStorage)  
+- ✅ **Dark / Light Mode**
+- ✅ **Search Bar** to filter events quickly  
+- ✅ **Month & Year navigation** (with selectors)  
+- ✅ **GitHub Pages Deployment** ready  
+
+---
+
+## 📂 Project Structure
+
+```
+
+calendar-app/
+│── src/
+│   ├── app/
+│   │   ├── components/
+│   │     ├── calendar/         # Main calendar component
+│   │     ├── event-form/       # Event modal form
+│   │     └── shared/           # Reusable parts
+│   │   
+│   ├── models/
+|   |__ utils/
+│   │
+|   |___ services/
+│   └── styles.scss               # Global styles
+│── angular.json
+│── package.json
+│── README.md
+
+````
+
+---
+
+## ⚡ Setup Instructions
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/subhashini0223/Angular-Calendar-Application.git
+cd Angular-Calendar-Application
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run locally
+
+```bash
+ng serve -o
+```
+
+This opens the app at `http://localhost:4200`.
+
+---
+
+## 🚀 Deployment (GitHub Pages)
+
+1. Build the app:
+
+   ```bash
+   ng build --configuration production --base-href "https://subhashini0223.github.io/Angular-Calendar-Application/"
+   ```
+
+2. Deploy:
+
+   ```bash
+   npx angular-cli-ghpages --dir=dist/calendar-app/browser
+   ```
+
+3. Live demo will be available at:
+
+   ```
+   https://subhashini0223.github.io/Angular-Calendar-Application/](https://subhashini0223.github.io/Angular-Calendar-Application/
+   ```
+
+---
 
 ## Screenshots
 Calendar Application -> Light Mode
@@ -33,22 +115,24 @@ Calendar Application - Confirmation Dailogs for Delete
 
 [Live Demo Link](https://subhashini0223.github.io/Angular-Calendar-Application/)  
 
-*(Replace with your deployed demo URL, e.g., Netlify, Vercel, or GitHub Pages)*
+
+## 📌 Roadmap (Future Enhancements)
+
+* 📅 Integration with external holiday/occasions API (auto-display public holidays)
+* 🔔 Push notifications for reminders
+* 🌐 Multi-language / i18n support
+* 📊 Analytics dashboard (events per category, trends)
 
 ---
 
-## Installation
+## 👩‍💻 Author
 
-### Prerequisites
+**Subhashini Thiyagarajan**
+Frontend Developer | Angular Enthusiast
 
-- [Node.js](https://nodejs.org/) (>= 18.x recommended)
-- [Angular CLI](https://angular.io/cli) (>= 16.x)
-- Git (for version control)
+* 🌐 [Live Demo](https://subhashini0223.github.io/Angular-Calendar-Application/)
+* 💻 [GitHub Profile](https://github.com/subhashini0223)
 
-### Steps
+ 
 
-1. **Clone the repository**
 
-```bash
-git clone https://github.com/subhashini0223/Angular-Calendar-Application.git
-cd Angular-Calendar-Application
